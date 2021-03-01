@@ -4,14 +4,12 @@ namespace KeezyBetterWolves
 {
     public class Wolf
     {
-        private Character _character;
+        public Character Character { get; }
 
         public bool Mute()
         {
             throw new NotImplementedException();
             return true;
         }
-
-        public Character Character => _character;
     }
 }
