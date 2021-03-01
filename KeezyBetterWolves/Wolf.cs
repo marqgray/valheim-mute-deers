@@ -4,17 +4,18 @@ namespace KeezyBetterWolves
 {
     public class Wolf
     {
-        public Character Character { get; }
+        private const float MutedFloatValue = 0f;
         private readonly float _originalIdleSoundChance;
         private readonly float _originalIdleSoundInterval;
-        private const float MutedFloatValue = 0f;
 
         public Wolf()
         {
             throw new NotImplementedException();
-            this._originalIdleSoundChance = this.Character.GetBaseAI().m_idleSoundChance;
-            this._originalIdleSoundInterval = this.Character.GetBaseAI().m_idleSoundInterval;
+            _originalIdleSoundChance = Character.GetBaseAI().m_idleSoundChance;
+            _originalIdleSoundInterval = Character.GetBaseAI().m_idleSoundInterval;
         }
+
+        public Character Character { get; }
 
         public void SetMuteState(bool isMuted)
         {
@@ -22,13 +23,13 @@ namespace KeezyBetterWolves
             {
                 if (isMuted)
                 {
-                    this.Character.GetBaseAI().m_idleSoundChance = MutedFloatValue;
-                    this.Character.GetBaseAI().m_idleSoundInterval = MutedFloatValue;
+                    Character.GetBaseAI().m_idleSoundChance = MutedFloatValue;
+                    Character.GetBaseAI().m_idleSoundInterval = MutedFloatValue;
                 }
                 else
                 {
-                    this.Character.GetBaseAI().m_idleSoundChance = this._originalIdleSoundChance;
-                    this.Character.GetBaseAI().m_idleSoundInterval = this._originalIdleSoundInterval;
+                    Character.GetBaseAI().m_idleSoundChance = _originalIdleSoundChance;
+                    Character.GetBaseAI().m_idleSoundInterval = _originalIdleSoundInterval;
                 }
             }
             catch (Exception exception)
@@ -41,8 +42,8 @@ namespace KeezyBetterWolves
         {
             try
             {
-                return Math.Abs(this.Character.GetBaseAI().m_idleSoundChance - MutedFloatValue) < 0.1f &&
-                       Math.Abs(this.Character.GetBaseAI().m_idleSoundInterval - MutedFloatValue) < 0.1f;
+                return Math.Abs(Character.GetBaseAI().m_idleSoundChance - MutedFloatValue) < 0.1f &&
+                       Math.Abs(Character.GetBaseAI().m_idleSoundInterval - MutedFloatValue) < 0.1f;
             }
             catch (Exception e)
             {
@@ -52,7 +53,7 @@ namespace KeezyBetterWolves
 
         public bool IsTamed()
         {
-            return this.Character.IsTamed();
+            return Character.IsTamed();
         }
     }
 }
