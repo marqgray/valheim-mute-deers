@@ -49,5 +49,10 @@ namespace KeezyBetterWolves
                 throw new NotImplementedException();
             }
         }
+
+        public bool IsTamed()
+        {
+            return this.Character.IsTamed();
+        }
     }
 }
