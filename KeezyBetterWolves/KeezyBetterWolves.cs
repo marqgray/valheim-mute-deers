@@ -6,7 +6,7 @@ using UnityEngine;
 namespace KeezyBetterWolves
 {
     [BepInPlugin("KeezyBetterWolves", "Keezy's Better Wolves", "0.1.0.0")]
-    public class KeezyBetterWolves
+    public class KeezyBetterWolves : BaseUnityPlugin
     {
         private void Awake()
         {
