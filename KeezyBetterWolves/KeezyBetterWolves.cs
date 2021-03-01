@@ -7,10 +7,9 @@ namespace KeezyBetterWolves
     [BepInPlugin("KeezyBetterWolves", "Keezy's Better Wolves", "0.1.0.0")]
     public class KeezyBetterWolves
     {
-        [HarmonyPatch(typeof(SpawnSystem.SpawnData))]
-        [HarmonyPatch(new[] {typeof(SpawnSystem.SpawnData)})]
+        [HarmonyPatch(typeof(Character), "Awake")]
         [HarmonyPostfix]
-        static bool WolfSpawnPatch()
+        static bool CharacterAwakePatch()
         {
             throw new NotImplementedException();
         }
