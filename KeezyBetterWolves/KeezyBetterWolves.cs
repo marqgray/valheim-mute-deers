@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using BepInEx;
 using HarmonyLib;
 using UnityEngine;
@@ -11,13 +12,17 @@ namespace KeezyBetterWolves
         private void Awake()
         {
             Debug.Log("Keezy's Better Wolves 0.1.0.0");
+            new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
         [HarmonyPatch(typeof(Character), "Awake")]
-        [HarmonyPostfix]
-        private static bool CharacterAwakePatch()
+        private class CharacterAwakePatch
         {
-            throw new NotImplementedException();
+            [HarmonyPostfix]
+            private static void Postfix(ref Character __instance)
+            {
+                
+            }
         }
     }
 }
