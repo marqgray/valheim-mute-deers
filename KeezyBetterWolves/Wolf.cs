@@ -72,7 +72,11 @@ namespace KeezyBetterWolves
 
         public static void MuteTamedWolf(Character character)
         {
-            throw new NotImplementedException();
+            Wolf wolf = Wolf.Instantiate(character);
+            if (wolf.IsTamed())
+            {
+                wolf.SetMuteState(true);
+            }
         }
     }
 }
