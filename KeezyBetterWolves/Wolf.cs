@@ -53,7 +53,14 @@ namespace KeezyBetterWolves
 
         public bool IsTamed()
         {
-            return Character.IsTamed();
+            try
+            {
+                return Character.IsTamed();
+            }
+            catch (Exception exception)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
