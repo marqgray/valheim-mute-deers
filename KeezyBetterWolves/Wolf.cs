@@ -46,7 +46,7 @@ namespace KeezyBetterWolves
             }
             catch (Exception exception)
             {
-                throw new NotImplementedException();
+                throw new Exception("Error trying to mute wolf for an unknown reason");
             }
         }
 
@@ -59,7 +59,7 @@ namespace KeezyBetterWolves
             }
             catch (Exception e)
             {
-                throw new NotImplementedException();
+                throw new Exception("Error trying to retrieve wolf mute state for an unknown reason");
             }
         }
 
@@ -71,7 +71,7 @@ namespace KeezyBetterWolves
             }
             catch (Exception exception)
             {
-                throw new NotImplementedException();
+                throw new Exception("Error trying to retrieve wolf tame status for an unknown reason");
             }
         }
 
