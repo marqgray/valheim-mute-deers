@@ -1,19 +1,14 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace KeezyBetterWolves
 {
     public class Wolf
     {
-        private const float MutedFloatValue = 0f;
-        private readonly float _originalIdleSoundChance;
-        private readonly float _originalIdleSoundInterval;
-
         private Wolf(Character character)
         {
             Character = character;
-            _originalIdleSoundChance = Character.GetBaseAI().m_idleSoundChance;
-            _originalIdleSoundInterval = Character.GetBaseAI().m_idleSoundInterval;
         }
 
         public Character Character { get; }
@@ -30,40 +25,6 @@ namespace KeezyBetterWolves
             return character.m_name == "$enemy_wolf" || character.m_name == "$enemy_wolfcub";
         }
 
-        public void SetMuteState(bool isMuted)
-        {
-            try
-            {
-                if (isMuted)
-                {
-                    Character.GetBaseAI().m_idleSoundChance = MutedFloatValue;
-                    Character.GetBaseAI().m_idleSoundInterval = MutedFloatValue;
-                }
-                else
-                {
-                    Character.GetBaseAI().m_idleSoundChance = _originalIdleSoundChance;
-                    Character.GetBaseAI().m_idleSoundInterval = _originalIdleSoundInterval;
-                }
-            }
-            catch (Exception exception)
-            {
-                throw new Exception("Error trying to mute wolf for an unknown reason");
-            }
-        }
-
-        public bool GetMuteState()
-        {
-            try
-            {
-                return Math.Abs(Character.GetBaseAI().m_idleSoundChance - MutedFloatValue) < 0.1f &&
-                       Math.Abs(Character.GetBaseAI().m_idleSoundInterval - MutedFloatValue) < 0.1f;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error trying to retrieve wolf mute state for an unknown reason");
-            }
-        }
-
         public bool IsTamed()
         {
             try
@@ -78,13 +39,20 @@ namespace KeezyBetterWolves
 
         public static void MuteTamedWolfListener(ZSFX sfx, ref bool shouldMute)
         {
-            if (!sfx.name.Contains("sfx_wolf_haul")) return;
-            foreach (var wolfCharacter in Character.GetAllCharacters().FindAll(IsCharacterAWolf))
-                if (Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30)
-                {
-                    var wolf = Instantiate(wolfCharacter);
-                    if (wolf.IsTamed()) shouldMute = true;
-                }
+            try
+            {
+                if (!sfx.name.Contains("sfx_wolf_haul")) return;
+                foreach (var wolf in from wolfCharacter in Character.GetAllCharacters().FindAll(IsCharacterAWolf)
+                    where Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30
+                    select Instantiate(wolfCharacter)
+                    into wolf
+                    where wolf.IsTamed()
+                    select wolf) shouldMute = true;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error trying to determine to wolf for an unknown reason");
+            }
         }
     }
 }
