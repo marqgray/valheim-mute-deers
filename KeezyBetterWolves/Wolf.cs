@@ -19,14 +19,14 @@ namespace KeezyBetterWolves
 
         public static Wolf Instantiate(Character character)
         {
-            if (!Wolf.IsCharacterAWolf(character))
+            if (!IsCharacterAWolf(character))
                 throw new Exception("Character object is not a wolf");
             return new Wolf(character);
         }
 
         public static bool IsCharacterAWolf(Character character)
         {
-            return (character.m_name == "$enemy_wolf" || character.m_name == "$enemy_wolfcub");
+            return character.m_name == "$enemy_wolf" || character.m_name == "$enemy_wolfcub";
         }
 
         public void SetMuteState(bool isMuted)
@@ -77,13 +77,10 @@ namespace KeezyBetterWolves
 
         public static void MuteTamedWolfListener(Character character)
         {
-            if (!Wolf.IsCharacterAWolf(character))
+            if (!IsCharacterAWolf(character))
                 return;
-            Wolf wolf = Wolf.Instantiate(character);
-            if (wolf.IsTamed())
-            {
-                wolf.SetMuteState(true);
-            }
+            var wolf = Instantiate(character);
+            if (wolf.IsTamed()) wolf.SetMuteState(true);
         }
     }
 }
