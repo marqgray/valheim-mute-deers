@@ -4,6 +4,7 @@ using HarmonyLib;
 namespace KeezyBetterWolves
 {
     public delegate void CharacterAwakeListener(Character character);
+
     public delegate void ZSFXPlayListener(ZSFX sfx, ref bool shouldMute);
 
     [BepInPlugin("KeezyBetterWolves", "Keezy's Better Wolves", "0.1.0.0")]
@@ -11,7 +12,7 @@ namespace KeezyBetterWolves
     {
         private void Awake()
         {
-            CharacterAwakeEvent += Wolf.MuteTamedWolfListener;
+            ZSFXPlayEvent += Wolf.MuteTamedWolfListener;
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
@@ -27,14 +28,14 @@ namespace KeezyBetterWolves
                 CharacterAwakeEvent?.Invoke(__instance);
             }
         }
-        
+
         [HarmonyPatch(typeof(ZSFX), "Play")]
         private class ZSFXPlayPatch
         {
             [HarmonyPrefix]
             private static bool Prefix(ref ZSFX __instance)
             {
-                bool shouldMute = false;
+                var shouldMute = false;
                 ZSFXPlayEvent.Invoke(__instance, ref shouldMute);
                 return !shouldMute;
             }
