@@ -8,11 +8,23 @@ namespace KeezyBetterWolves
         private readonly float _originalIdleSoundChance;
         private readonly float _originalIdleSoundInterval;
 
-        public Wolf()
+        private Wolf(Character character)
         {
-            throw new NotImplementedException();
+            this.Character = character;
             _originalIdleSoundChance = Character.GetBaseAI().m_idleSoundChance;
             _originalIdleSoundInterval = Character.GetBaseAI().m_idleSoundInterval;
+        }
+
+        public static Wolf Instantiate(Character character)
+        {
+            if (character.m_name != "$enemy_wolf" && character.m_name != "$enemy_wolfcub")
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                return new Wolf(character);
+            }
         }
 
         public Character Character { get; }
