@@ -12,7 +12,7 @@ namespace KeezyBetterWolves
         private void Awake()
         {
             Debug.Log("Keezy's Better Wolves 0.1.0.0");
-            CharacterAwakeEvent += Wolf.MuteTamedWolf;
+            CharacterAwakeEvent += Wolf.MuteTamedWolfListener;
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
