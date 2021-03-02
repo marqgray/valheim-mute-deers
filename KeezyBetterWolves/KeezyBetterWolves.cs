@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using BepInEx;
+﻿using BepInEx;
 using HarmonyLib;
 using UnityEngine;
 
@@ -21,7 +19,6 @@ namespace KeezyBetterWolves
             [HarmonyPostfix]
             private static void Postfix(ref Character __instance)
             {
-                
             }
         }
     }
