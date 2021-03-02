@@ -74,5 +74,10 @@ namespace KeezyBetterWolves
                 throw new NotImplementedException();
             }
         }
+
+        public static void MuteTamedWolf(Character character)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
