@@ -5,16 +5,18 @@ using UnityEngine;
 namespace KeezyBetterWolves
 {
     public delegate void CharacterAwakeListener(Character character);
+
     [BepInPlugin("KeezyBetterWolves", "Keezy's Better Wolves", "0.1.0.0")]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
-        public static event CharacterAwakeListener CharacterAwakeEvent;
         private void Awake()
         {
             Debug.Log("Keezy's Better Wolves 0.1.0.0");
-            CharacterAwakeEvent += new CharacterAwakeListener(Wolf.MuteTamedWolf);
+            CharacterAwakeEvent += Wolf.MuteTamedWolf;
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
+
+        public static event CharacterAwakeListener CharacterAwakeEvent;
 
         [HarmonyPatch(typeof(Character), "Awake")]
         private class CharacterAwakePatch

@@ -10,24 +10,19 @@ namespace KeezyBetterWolves
 
         private Wolf(Character character)
         {
-            this.Character = character;
+            Character = character;
             _originalIdleSoundChance = Character.GetBaseAI().m_idleSoundChance;
             _originalIdleSoundInterval = Character.GetBaseAI().m_idleSoundInterval;
         }
 
+        public Character Character { get; }
+
         public static Wolf Instantiate(Character character)
         {
             if (character.m_name != "$enemy_wolf" && character.m_name != "$enemy_wolfcub")
-            {
                 throw new NotImplementedException();
-            }
-            else
-            {
-                return new Wolf(character);
-            }
+            return new Wolf(character);
         }
-
-        public Character Character { get; }
 
         public void SetMuteState(bool isMuted)
         {
