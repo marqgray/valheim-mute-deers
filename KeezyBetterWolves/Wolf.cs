@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace KeezyBetterWolves
 {
@@ -75,12 +76,15 @@ namespace KeezyBetterWolves
             }
         }
 
-        public static void MuteTamedWolfListener(Character character)
+        public static void MuteTamedWolfListener(ZSFX sfx, ref bool shouldMute)
         {
-            if (!IsCharacterAWolf(character))
-                return;
-            var wolf = Instantiate(character);
-            if (wolf.IsTamed()) wolf.SetMuteState(true);
+            if (!sfx.name.Contains("sfx_wolf_haul")) return;
+            foreach (var wolfCharacter in Character.GetAllCharacters().FindAll(IsCharacterAWolf))
+                if (Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30)
+                {
+                    var wolf = Instantiate(wolfCharacter);
+                    if (wolf.IsTamed()) shouldMute = true;
+                }
         }
     }
 }
