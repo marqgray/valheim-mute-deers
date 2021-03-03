@@ -10,18 +10,24 @@ namespace KeezyBetterWolves
     [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
-        public static ConfigEntry<int> ConfigMuteTamedWolvesHowlPercentage;
         public static ConfigEntry<bool> ConfigMuteTamedWolvesHowl;
+        public static ConfigEntry<int> ConfigMuteTamedWolvesHowlPercentage;
+        public static ConfigEntry<int> ConfigMuteTamedWolvesHowlVolumePercentage;
 
         private void Awake()
         {
-            ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Sound", "MuteTamedHowl", true,
+            ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Sound", "TamedHowlMute", true,
                 "Set this key to true or false to mute all tamed wolves howl entirely.");
 
-            ConfigMuteTamedWolvesHowlPercentage = Config.Bind("Wolves.Sound", "MuteTamedHowlPercent", 100,
+            ConfigMuteTamedWolvesHowlPercentage = Config.Bind("Wolves.Sound", "TamedHowlMutePercent", 100,
                 "Instead of muting all tamed wolves howl entirely, you could also specify a range from 0 to 100 to allow only some howls of the wolves to go through. Example: 20 = 80% howl rate per wolf.");
 
+            ConfigMuteTamedWolvesHowlVolumePercentage = Config.Bind("Wolves.Sound", "TamedHowlVolumePercent", 100,
+                "Adjust the volume of all tamed wolf howls by a range of 0 to 100.");
+
             if (ConfigMuteTamedWolvesHowl.Value) ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
+            if (ConfigMuteTamedWolvesHowlVolumePercentage.Value < 100)
+                ZSFXPlayEvent += AnimalListeners.AdjustTamedWolfVolume;
 
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }

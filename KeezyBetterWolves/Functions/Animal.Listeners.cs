@@ -28,5 +28,14 @@ namespace KeezyBetterWolves
                 throw new Exception(ExceptionMessages.MuteWolfAttempt);
             }
         }
+
+        public static void AdjustTamedWolfVolume(ZSFX sfx, ref bool shouldMute)
+        {
+            if (shouldMute) return;
+            if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
+            var configVolume = KeezyBetterWolves.ConfigMuteTamedWolvesHowlVolumePercentage.Value;
+            sfx.m_maxVol *= configVolume / 100f;
+            sfx.m_minVol *= configVolume / 100f;
+        }
     }
 }
