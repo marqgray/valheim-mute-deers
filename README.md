@@ -1,8 +1,9 @@
 # Keezy's Better Wolves
 
-This project is a modification to the new and popular game Valheim. The mod at its core is simple for now. All that it does at the moment is silence every wolf that is tamed.
+This project is a modification to the new and popular game Valheim. The project is focused on improving wolves to make them a better experience to the game.
 
 ### Features
 
-- Silenced all tamed wolves in the client. ( Finally those wolves can be less annoying )
+- All tamed wolf howls are silenced by default. This is configurable.
+- Wolf howl volume can be modified in a generated config file.
 
