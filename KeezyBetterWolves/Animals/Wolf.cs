@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using KeezyBetterWolves.Strings;
+using KeezyBetterWolves.Constants;
 using UnityEngine;
 
-namespace KeezyBetterWolves
+namespace KeezyBetterWolves.Animals
 {
     public class Wolf
     {

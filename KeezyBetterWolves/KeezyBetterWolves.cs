@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using HarmonyLib;
+using KeezyBetterWolves.Animals;
 
 namespace KeezyBetterWolves
 {

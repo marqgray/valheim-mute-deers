@@ -1,4 +1,4 @@
-﻿namespace KeezyBetterWolves.Strings
+﻿namespace KeezyBetterWolves.Constants
 {
     public static class ExceptionMessages
     {

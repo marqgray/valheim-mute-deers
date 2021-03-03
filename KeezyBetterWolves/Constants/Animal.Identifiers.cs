@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KeezyBetterWolves.Strings
+namespace KeezyBetterWolves.Constants
 {
     public static class AnimalIdentifiers
     {
