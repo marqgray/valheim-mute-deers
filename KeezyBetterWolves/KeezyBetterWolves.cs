@@ -15,11 +15,11 @@ namespace KeezyBetterWolves
 
         private void Awake()
         {
-            ConfigMuteTamedWolvesHowlPercentage = Config.Bind("Wolves", "MuteTamedHowlPercent", 100,
-                "Instead of muting all tamed wolves howl entirely, you could also specify a range from 0 to 100 to allow only some howls of the wolves to go through.");
-
-            ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Toggles", "MuteTamedHowl", true,
+            ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Sound", "MuteTamedHowl", true,
                 "Set this key to true or false to mute all tamed wolves howl entirely.");
+
+            ConfigMuteTamedWolvesHowlPercentage = Config.Bind("Wolves.Sound", "MuteTamedHowlPercent", 100,
+                "Instead of muting all tamed wolves howl entirely, you could also specify a range from 0 to 100 to allow only some howls of the wolves to go through. Example: 20 = 80% howl rate per wolf.");
 
             if (ConfigMuteTamedWolvesHowl.Value) ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
 
