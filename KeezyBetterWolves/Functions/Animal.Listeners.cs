@@ -2,6 +2,7 @@
 using System.Linq;
 using KeezyBetterWolves.Constants;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace KeezyBetterWolves
 {
@@ -11,7 +12,9 @@ namespace KeezyBetterWolves
         {
             try
             {
+                if (shouldMute) return;
                 if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
+                if (Random.Range(0, 100) > KeezyBetterWolves.ConfigMuteTamedWolvesHowlPercentage.Value) return;
                 foreach (var wolf in from wolfCharacter in Character.GetAllCharacters()
                         .FindAll(AnimalConditionals.IsCharacterAWolf)
                     where Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30
