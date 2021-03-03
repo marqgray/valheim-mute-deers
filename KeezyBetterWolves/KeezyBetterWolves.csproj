@@ -46,25 +46,31 @@
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Libs\UnityEngine.dll</HintPath>
+            <HintPath>..\Libs\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Libs\UnityEngine.CoreModule.dll</HintPath>
+            <HintPath>..\Libs\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Animals\Wolf.cs"/>
+        <Compile Include="Components\Animals\Animal.cs"/>
+        <Compile Include="Components\Animals\Wolf.cs"/>
         <Compile Include="Constants\Mod.Info.cs"/>
+        <Compile Include="Functions\Animal.Conditionals.cs"/>
+        <Compile Include="Functions\Animal.Listeners.cs"/>
         <Compile Include="KeezyBetterWolves.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Constants\Animal.Identifiers.cs"/>
         <Compile Include="Constants\Exception.Messages.cs"/>
         <Compile Include="Constants\SFX.Identifiers.cs"/>
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <ItemGroup>
+        <Folder Include="Components"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

@@ -1,7 +1,7 @@
 ﻿using BepInEx;
 using HarmonyLib;
-using KeezyBetterWolves.Animals;
 using KeezyBetterWolves.Constants;
+using KeezyBetterWolves.Functions;
 
 namespace KeezyBetterWolves
 {
@@ -12,7 +12,7 @@ namespace KeezyBetterWolves
     {
         private void Awake()
         {
-            ZSFXPlayEvent += Wolf.MuteTamedWolfListener;
+            ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
