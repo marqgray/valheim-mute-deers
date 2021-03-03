@@ -34,8 +34,9 @@ namespace KeezyBetterWolves
             if (shouldMute) return;
             if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
             var configVolume = KeezyBetterWolves.ConfigMuteTamedWolvesHowlVolumePercentage.Value;
-            sfx.m_maxVol *= configVolume / 100f;
-            sfx.m_minVol *= configVolume / 100f;
+            var volumeMultiplier = configVolume / 100f;
+            sfx.m_maxVol *= volumeMultiplier;
+            sfx.m_minVol *= volumeMultiplier;
         }
     }
 }
