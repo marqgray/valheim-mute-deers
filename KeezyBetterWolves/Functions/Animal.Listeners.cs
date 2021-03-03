@@ -45,7 +45,7 @@ namespace KeezyBetterWolves
             if (!AnimalConditionals.IsCharacterAWolf(targetCharacter)) return;
             var wolf = new Wolf(targetCharacter);
             if (!wolf.IsTamed()) return;
-            if (hit.GetAttacker().m_name.Contains("Human"))
+            if (hit.GetAttacker().m_name.Contains(PlayerIdentifiers.Player[PlayerIdentifiers.PlayerType.PlayerNormal]))
                 hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfPlayerDamageReduction.Value / 100f);
             else
                 hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfDamageReduction.Value / 100f);
