@@ -42,17 +42,13 @@ namespace KeezyBetterWolves
         public static void PlayerTamedWolfDamageReduction(Character targetCharacter, ref HitData hit,
             ref bool showDamageText, ref bool triggerEffects, ref HitData.DamageModifier damageMod)
         {
-            if (AnimalConditionals.IsCharacterAWolf(targetCharacter))
-            {
-                var wolf = new Wolf(targetCharacter);
-                if (wolf.IsTamed())
-                {
-                    if (hit.GetAttacker().m_name.Contains("Human"))
-                        hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfPlayerDamageReduction.Value / 100f);
-                    else
-                        hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfDamageReduction.Value / 100f);
-                }
-            }
+            if (!AnimalConditionals.IsCharacterAWolf(targetCharacter)) return;
+            var wolf = new Wolf(targetCharacter);
+            if (!wolf.IsTamed()) return;
+            if (hit.GetAttacker().m_name.Contains("Human"))
+                hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfPlayerDamageReduction.Value / 100f);
+            else
+                hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfDamageReduction.Value / 100f);
         }
     }
 }
