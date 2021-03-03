@@ -36,16 +36,16 @@
           <HintPath>..\Libs\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="assembly_valheim, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Libs\assembly_valheim.dll</HintPath>
+            <HintPath>..\Libs\assembly_valheim.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx, Version=5.4.7.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Libs\BepInEx.dll</HintPath>
+            <HintPath>..\Libs\BepInEx.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx.Harmony, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Libs\BepInEx.Harmony.dll</HintPath>
+            <HintPath>..\Libs\BepInEx.Harmony.dll</HintPath>
         </Reference>
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -59,6 +59,7 @@
         <Compile Include="Components\Animals\Animal.cs"/>
         <Compile Include="Components\Animals\Wolf.cs"/>
         <Compile Include="Constants\Mod.Info.cs"/>
+        <Compile Include="Constants\Player.Identifiers.cs"/>
         <Compile Include="Functions\Animal.Conditionals.cs"/>
         <Compile Include="Functions\Animal.Listeners.cs"/>
         <Compile Include="KeezyBetterWolves.cs"/>
