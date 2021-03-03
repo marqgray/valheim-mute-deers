@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Linq;
+using KeezyBetterWolves.Strings;
 using UnityEngine;
 
 namespace KeezyBetterWolves
 {
     public class Wolf
     {
-        private Wolf(Character character)
+        public Wolf(Character character)
         {
+            if (!IsCharacterAWolf(character))
+                throw new Exception(ExceptionMessages.InvalidCharacterObject);
             Character = character;
         }
 
         public Character Character { get; }
-
-        public static Wolf Instantiate(Character character)
-        {
-            if (!IsCharacterAWolf(character))
-                throw new Exception("Character object is not a wolf");
-            return new Wolf(character);
-        }
 
         public static bool IsCharacterAWolf(Character character)
         {
@@ -33,7 +29,7 @@ namespace KeezyBetterWolves
             }
             catch (Exception exception)
             {
-                throw new Exception("Error trying to retrieve wolf tame status for an unknown reason");
+                throw new Exception(ExceptionMessages.TameQuery);
             }
         }
 
@@ -44,14 +40,14 @@ namespace KeezyBetterWolves
                 if (!sfx.name.Contains("sfx_wolf_haul")) return;
                 foreach (var wolf in from wolfCharacter in Character.GetAllCharacters().FindAll(IsCharacterAWolf)
                     where Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30
-                    select Instantiate(wolfCharacter)
+                    select new Wolf(wolfCharacter)
                     into wolf
                     where wolf.IsTamed()
                     select wolf) shouldMute = true;
             }
             catch (Exception exception)
             {
-                throw new Exception("Error trying to determine to mute a wolf for an unknown reason");
+                throw new Exception(ExceptionMessages.MuteWolfAttempt);
             }
         }
     }
