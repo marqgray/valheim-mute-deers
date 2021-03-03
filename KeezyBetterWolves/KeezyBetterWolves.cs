@@ -26,6 +26,7 @@ namespace KeezyBetterWolves
                 "Adjust the volume of all tamed wolf howls by a range of 0 to 100.");
 
             if (ConfigMuteTamedWolvesHowl.Value) ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
+
             if (ConfigMuteTamedWolvesHowlVolumePercentage.Value < 100)
                 ZSFXPlayEvent += AnimalListeners.AdjustTamedWolfVolume;
 
