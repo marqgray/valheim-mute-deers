@@ -1,29 +1,29 @@
 ﻿using System.Collections.Generic;
 
-namespace KeezyBetterWolves.Constants
+namespace KeezyBetterWolves
 {
     public static class AnimalIdentifiers
     {
-        public static readonly Dictionary<Animal, string> Animals = new Dictionary<Animal, string>
+        public static readonly Dictionary<AnimalType, string> Animals = new Dictionary<AnimalType, string>
         {
-            {Animal.EnemyAdultWolf, "$enemy_wolf"},
-            {Animal.EnemyAdultWolfCub, "$enemy_wolfcub"}
+            {AnimalType.EnemyAdultWolf, "$enemy_wolf"},
+            {AnimalType.EnemyAdultWolfCub, "$enemy_wolfcub"}
         };
 
-        public static readonly Dictionary<Animal, string> Wolves = new Dictionary<Animal, string>
+        public static readonly Dictionary<AnimalType, string> Wolves = new Dictionary<AnimalType, string>
         {
-            {Animal.EnemyAdultWolf, Animals[Animal.EnemyAdultWolf]},
-            {Animal.EnemyAdultWolfCub, Animals[Animal.EnemyAdultWolfCub]}
+            {AnimalType.EnemyAdultWolf, Animals[AnimalType.EnemyAdultWolf]},
+            {AnimalType.EnemyAdultWolfCub, Animals[AnimalType.EnemyAdultWolfCub]}
         };
 
-        public static readonly Dictionary<Animal, string> EnemyWolves = new Dictionary<Animal, string>
+        public static readonly Dictionary<AnimalType, string> EnemyWolves = new Dictionary<AnimalType, string>
         {
-            {Animal.EnemyAdultWolf, Animals[Animal.EnemyAdultWolf]},
-            {Animal.EnemyAdultWolfCub, Animals[Animal.EnemyAdultWolfCub]}
+            {AnimalType.EnemyAdultWolf, Animals[AnimalType.EnemyAdultWolf]},
+            {AnimalType.EnemyAdultWolfCub, Animals[AnimalType.EnemyAdultWolfCub]}
         };
     }
 
-    public enum Animal
+    public enum AnimalType
     {
         EnemyAdultWolf = 0,
         EnemyAdultWolfCub = 1

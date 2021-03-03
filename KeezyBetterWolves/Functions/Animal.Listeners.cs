@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
-using KeezyBetterWolves.Components.Animals;
 using KeezyBetterWolves.Constants;
 using UnityEngine;
 
-namespace KeezyBetterWolves.Functions
+namespace KeezyBetterWolves
 {
     public static class AnimalListeners
     {

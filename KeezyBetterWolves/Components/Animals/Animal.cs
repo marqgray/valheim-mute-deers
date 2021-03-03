@@ -1,7 +1,7 @@
 ﻿using System;
 using KeezyBetterWolves.Constants;
 
-namespace KeezyBetterWolves.Components.Animals
+namespace KeezyBetterWolves
 {
     public abstract class Animal
     {

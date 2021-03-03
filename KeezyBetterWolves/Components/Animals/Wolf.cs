@@ -1,8 +1,7 @@
 ﻿using System;
 using KeezyBetterWolves.Constants;
-using KeezyBetterWolves.Functions;
 
-namespace KeezyBetterWolves.Components.Animals
+namespace KeezyBetterWolves
 {
     public class Wolf : Animal
     {

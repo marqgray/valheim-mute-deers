@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using KeezyBetterWolves.Constants;
-using KeezyBetterWolves.Functions;
 
 namespace KeezyBetterWolves
 {

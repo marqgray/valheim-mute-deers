@@ -1,6 +1,4 @@
-﻿using KeezyBetterWolves.Constants;
-
-namespace KeezyBetterWolves.Functions
+﻿namespace KeezyBetterWolves
 {
     public static class AnimalConditionals
     {
