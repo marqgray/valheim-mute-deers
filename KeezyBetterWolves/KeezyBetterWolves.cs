@@ -7,17 +7,26 @@ namespace KeezyBetterWolves
 {
     public delegate void ZSFXPlayListener(ZSFX sfx, ref bool shouldMute);
 
-    public delegate void BaseAIOnDamagedListener(ref BaseAI victim, ref float damage, ref Character attacker);
+    public delegate void CharacterApplyDamageListener(Character targetCharacter, ref HitData hit,
+        ref bool showDamageText, ref bool triggerEffects, ref HitData.DamageModifier damageMod);
 
     [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
+        public static ConfigEntry<int> ConfigTamedWolfDamageReduction;
+        public static ConfigEntry<int> ConfigTamedWolfPlayerDamageReduction;
         public static ConfigEntry<bool> ConfigMuteTamedWolvesHowl;
         public static ConfigEntry<int> ConfigMuteTamedWolvesHowlPercentage;
         public static ConfigEntry<int> ConfigMuteTamedWolvesHowlVolumePercentage;
 
         private void Awake()
         {
+            ConfigTamedWolfDamageReduction = Config.Bind("Wolves.Damage", "TamedWolfDamageReduction", 70,
+                "Reduce damage on tamed wolves from all non-player sources from a percentage range of 0 to 100.");
+
+            ConfigTamedWolfPlayerDamageReduction = Config.Bind("Wolves.Damage", "TamedWolfPlayerDamageReduction", 95,
+                "Reduce damage on tamed wolves by players from a percentage range of 0 to 100.");
+
             ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Sound", "TamedHowlMute", true,
                 "Set this key to true or false to mute all tamed wolves howl entirely.");
 
@@ -32,11 +41,14 @@ namespace KeezyBetterWolves
             if (ConfigMuteTamedWolvesHowlVolumePercentage.Value < 100)
                 ZSFXPlayEvent += AnimalListeners.AdjustTamedWolfVolume;
 
+            if (ConfigTamedWolfDamageReduction.Value > 0 || ConfigTamedWolfPlayerDamageReduction.Value > 0)
+                CharacterApplyDamageEvent += AnimalListeners.PlayerTamedWolfDamageReduction;
+
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
         public static event ZSFXPlayListener ZSFXPlayEvent;
-        public static event BaseAIOnDamagedListener BaseAIOnDamagedEvent;
+        public static event CharacterApplyDamageListener CharacterApplyDamageEvent;
 
         [HarmonyPatch(typeof(ZSFX), "Play")]
         private class ZSFXPlayPatch
@@ -50,13 +62,14 @@ namespace KeezyBetterWolves
             }
         }
 
-        [HarmonyPatch(typeof(BaseAI), "OnDamaged")]
-        private class BaseAIOnDamagedPatch
+        [HarmonyPatch(typeof(Character), "ApplyDamage")]
+        private class CharacterApplyDamagePatch
         {
             [HarmonyPrefix]
-            private static bool Prefix(ref BaseAI __instance, ref float damage, ref Character attacker)
+            private static bool Prefix(ref Character __instance, ref HitData hit, ref bool showDamageText,
+                ref bool triggerEffects, ref HitData.DamageModifier mod)
             {
-                BaseAIOnDamagedEvent?.Invoke(ref __instance, ref damage, ref attacker);
+                CharacterApplyDamageEvent?.Invoke(__instance, ref hit, ref showDamageText, ref triggerEffects, ref mod);
                 return true;
             }
         }
