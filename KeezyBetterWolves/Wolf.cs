@@ -18,7 +18,7 @@ namespace KeezyBetterWolves
 
         public static bool IsCharacterAWolf(Character character)
         {
-            return character.m_name == "$enemy_wolf" || character.m_name == "$enemy_wolfcub";
+            return AnimalIdentifiers.Wolves.ContainsValue(character.m_name);
         }
 
         public bool IsTamed()
