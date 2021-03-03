@@ -56,12 +56,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Animals\Wolf.cs"/>
         <Compile Include="KeezyBetterWolves.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Constants\Animal.Identifiers.cs"/>
         <Compile Include="Constants\Exception.Messages.cs"/>
         <Compile Include="Constants\SFX.Identifiers.cs"/>
-        <Compile Include="Wolf.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
