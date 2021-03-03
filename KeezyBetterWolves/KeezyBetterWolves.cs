@@ -7,6 +7,8 @@ namespace KeezyBetterWolves
 {
     public delegate void ZSFXPlayListener(ZSFX sfx, ref bool shouldMute);
 
+    public delegate void BaseAIOnDamagedListener(ref BaseAI victim, ref float damage, ref Character attacker);
+
     [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
@@ -34,6 +36,7 @@ namespace KeezyBetterWolves
         }
 
         public static event ZSFXPlayListener ZSFXPlayEvent;
+        public static event BaseAIOnDamagedListener BaseAIOnDamagedEvent;
 
         [HarmonyPatch(typeof(ZSFX), "Play")]
         private class ZSFXPlayPatch
@@ -53,6 +56,7 @@ namespace KeezyBetterWolves
             [HarmonyPrefix]
             private static bool Prefix(ref BaseAI __instance, ref float damage, ref Character attacker)
             {
+                BaseAIOnDamagedEvent?.Invoke(ref __instance, ref damage, ref attacker);
                 return true;
             }
         }
