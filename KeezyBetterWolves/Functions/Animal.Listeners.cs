@@ -31,24 +31,39 @@ namespace KeezyBetterWolves
 
         public static void AdjustTamedWolfVolume(ZSFX sfx, ref bool shouldMute)
         {
-            if (shouldMute) return;
-            if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
-            var configVolume = KeezyBetterWolves.ConfigMuteTamedWolvesHowlVolumePercentage.Value;
-            var volumeMultiplier = configVolume / 100f;
-            sfx.m_maxVol *= volumeMultiplier;
-            sfx.m_minVol *= volumeMultiplier;
+            try
+            {
+                if (shouldMute) return;
+                if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
+                var configVolume = KeezyBetterWolves.ConfigMuteTamedWolvesHowlVolumePercentage.Value;
+                var volumeMultiplier = configVolume / 100f;
+                sfx.m_maxVol *= volumeMultiplier;
+                sfx.m_minVol *= volumeMultiplier;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(ExceptionMessages.AdjustTamedWolfVolume);
+            }
         }
 
         public static void PlayerTamedWolfDamageReduction(Character targetCharacter, ref HitData hit,
             ref bool showDamageText, ref bool triggerEffects, ref HitData.DamageModifier damageMod)
         {
-            if (!AnimalConditionals.IsCharacterAWolf(targetCharacter)) return;
-            var wolf = new Wolf(targetCharacter);
-            if (!wolf.IsTamed()) return;
-            if (hit.GetAttacker().m_name.Contains(PlayerIdentifiers.Player[PlayerIdentifiers.PlayerType.PlayerNormal]))
-                hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfPlayerDamageReduction.Value / 100f);
-            else
-                hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfDamageReduction.Value / 100f);
+            try
+            {
+                if (!AnimalConditionals.IsCharacterAWolf(targetCharacter)) return;
+                var wolf = new Wolf(targetCharacter);
+                if (!wolf.IsTamed()) return;
+                if (hit.GetAttacker().m_name
+                    .Contains(PlayerIdentifiers.Player[PlayerIdentifiers.PlayerType.PlayerNormal]))
+                    hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfPlayerDamageReduction.Value / 100f);
+                else
+                    hit.m_damage.Modify(1f - KeezyBetterWolves.ConfigTamedWolfDamageReduction.Value / 100f);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(ExceptionMessages.TamedWolfDamageReduce);
+            }
         }
     }
 }
