@@ -37,7 +37,7 @@ namespace KeezyBetterWolves
         {
             try
             {
-                if (!sfx.name.Contains("sfx_wolf_haul")) return;
+                if (!sfx.name.Contains(SfxIdentifiers.WolfHowl)) return;
                 foreach (var wolf in from wolfCharacter in Character.GetAllCharacters().FindAll(IsCharacterAWolf)
                     where Vector3.Distance(wolfCharacter.GetTransform().position, sfx.transform.position) < 30
                     select new Wolf(wolfCharacter)
