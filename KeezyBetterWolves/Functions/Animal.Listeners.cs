@@ -38,5 +38,12 @@ namespace KeezyBetterWolves
             sfx.m_maxVol *= volumeMultiplier;
             sfx.m_minVol *= volumeMultiplier;
         }
+
+        public static void PlayerTamedWolfDamageReduction(ref BaseAI victim, ref float damage, ref Character attacker)
+        {
+            if (AnimalConditionals.IsCharacterAWolf(victim))
+            {
+            }
+        }
     }
 }
