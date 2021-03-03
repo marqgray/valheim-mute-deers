@@ -1,12 +1,13 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using KeezyBetterWolves.Animals;
+using KeezyBetterWolves.Constants;
 
 namespace KeezyBetterWolves
 {
     public delegate void ZSFXPlayListener(ZSFX sfx, ref bool shouldMute);
 
-    [BepInPlugin("KeezyBetterWolves", "Keezy's Better Wolves", "0.1.0.0")]
+    [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
         private void Awake()
