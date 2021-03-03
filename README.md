@@ -2,6 +2,14 @@
 
 This project is a modification to the new and popular game Valheim. The project is focused on improving wolves to make them a better experience to the game.
 
+
+
+### Requirements
+
+- [BepInExPack Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
+
+
+
 ### Features
 
 - All tamed wolf howls are silenced by default. This is configurable.
