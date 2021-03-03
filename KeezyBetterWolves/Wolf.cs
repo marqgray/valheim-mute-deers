@@ -51,7 +51,7 @@ namespace KeezyBetterWolves
             }
             catch (Exception exception)
             {
-                throw new Exception("Error trying to determine to wolf for an unknown reason");
+                throw new Exception("Error trying to determine to mute a wolf for an unknown reason");
             }
         }
     }
