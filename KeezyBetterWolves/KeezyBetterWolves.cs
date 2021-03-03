@@ -46,5 +46,15 @@ namespace KeezyBetterWolves
                 return !shouldMute;
             }
         }
+
+        [HarmonyPatch(typeof(BaseAI), "OnDamaged")]
+        private class BaseAIOnDamagedPatch
+        {
+            [HarmonyPrefix]
+            private static bool Prefix(ref BaseAI __instance, ref float damage, ref Character attacker)
+            {
+                return true;
+            }
+        }
     }
 }
