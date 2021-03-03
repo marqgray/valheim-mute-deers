@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using HarmonyLib;
 using KeezyBetterWolves.Constants;
 
@@ -9,9 +10,15 @@ namespace KeezyBetterWolves
     [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
+        public ConfigEntry<bool> ConfigMuteTamedWolvesHowl;
+
         private void Awake()
         {
-            ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
+            ConfigMuteTamedWolvesHowl = Config.Bind("Wolves.Toggles", "MuteTamedHowl", true,
+                "Set this key to true or false to mute all tamed wolves howl entirely.");
+
+            if (ConfigMuteTamedWolvesHowl.Value) ZSFXPlayEvent += AnimalListeners.MuteTamedWolfListener;
+
             new Harmony("KeezyBetterWolves.Harmony").PatchAll();
         }
 
