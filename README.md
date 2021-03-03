@@ -12,6 +12,9 @@ This project is a modification to the new and popular game Valheim. The project 
 
 ### Features
 
-- All tamed wolf howls are silenced by default. This is configurable.
-- Wolf howl volume can be modified in a generated config file.
+- Configurable damage reduction on tamed wolves by non-player sources. (Default: 70%)
+- Configurable damage reduction on tamed wolves by player sources. (Default: 95%)
+- All tamed wolf howls are silenced by default. (Configurable)
+- Configurable wolf howl volume.
+- Configurable wolf howl reduction.
 
