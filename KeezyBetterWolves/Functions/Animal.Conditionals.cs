@@ -6,5 +6,11 @@
         {
             return AnimalIdentifiers.Wolves.ContainsValue(character.m_name);
         }
+
+        public static bool IsCharacterAWolf(BaseAI baseAI)
+        {
+            var baseAICharacter = baseAI.GetComponent<Character>();
+            return IsCharacterAWolf(baseAICharacter);
+        }
     }
 }
