@@ -58,9 +58,9 @@
     <ItemGroup>
         <Compile Include="KeezyBetterWolves.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Strings\Animal.Identifiers.cs"/>
-        <Compile Include="Strings\Exception.Messages.cs"/>
-        <Compile Include="Strings\SFX.Identifiers.cs"/>
+        <Compile Include="Constants\Animal.Identifiers.cs"/>
+        <Compile Include="Constants\Exception.Messages.cs"/>
+        <Compile Include="Constants\SFX.Identifiers.cs"/>
         <Compile Include="Wolf.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
