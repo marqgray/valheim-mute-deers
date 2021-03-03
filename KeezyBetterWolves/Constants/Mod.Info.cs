@@ -1,4 +1,4 @@
-﻿namespace KeezyBetterWolves.Constants
+﻿namespace KeezyBetterWolves
 {
     public static class ModInfo
     {

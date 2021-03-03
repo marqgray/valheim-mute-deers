@@ -1,5 +1,4 @@
 ﻿using System;
-using KeezyBetterWolves.Constants;
 
 namespace KeezyBetterWolves
 {
