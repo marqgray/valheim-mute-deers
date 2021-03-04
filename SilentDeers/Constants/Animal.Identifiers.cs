@@ -10,7 +10,7 @@ namespace SilentDeers
             {AnimalType.EnemyAdultWolfCub, "$enemy_wolfcub"}
         };
 
-        public static readonly Dictionary<AnimalType, string> Wolves = new Dictionary<AnimalType, string>
+        public static readonly Dictionary<AnimalType, string> Deers = new Dictionary<AnimalType, string>
         {
             {AnimalType.EnemyAdultWolf, Animals[AnimalType.EnemyAdultWolf]},
             {AnimalType.EnemyAdultWolfCub, Animals[AnimalType.EnemyAdultWolfCub]}

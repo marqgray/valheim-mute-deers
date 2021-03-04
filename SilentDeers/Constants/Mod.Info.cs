@@ -2,7 +2,7 @@
 {
     public static class ModInfo
     {
-        public const string Name = "Keezy's Better Wolves";
-        public const string Version = "0.2.1.0";
+        public const string Name = "Silent Deers";
+        public const string Version = "1.0.0.0";
     }
 }

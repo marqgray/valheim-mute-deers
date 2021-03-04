@@ -57,7 +57,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Components\Animals\Animal.cs" />
-        <Compile Include="Components\Animals\Wolf.cs" />
+        <Compile Include="Components\Animals\Deer.cs" />
         <Compile Include="Constants\Mod.Info.cs" />
         <Compile Include="Constants\Player.Identifiers.cs" />
         <Compile Include="Functions\Animal.Conditionals.cs" />
