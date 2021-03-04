@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KeezyBetterWolves
+namespace SilentDeers
 {
     public abstract class Animal
     {

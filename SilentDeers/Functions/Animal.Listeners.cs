@@ -3,7 +3,8 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace KeezyBetterWolves
+
+namespace SilentDeers
 {
     public static class AnimalListeners
     {

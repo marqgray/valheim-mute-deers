@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KeezyBetterWolves
+namespace SilentDeers
 {
     public static class PlayerIdentifiers
     {

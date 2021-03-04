@@ -1,4 +1,4 @@
-﻿namespace KeezyBetterWolves
+﻿namespace SilentDeers
 {
     public static class ExceptionMessages
     {

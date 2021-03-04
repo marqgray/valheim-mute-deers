@@ -2,14 +2,14 @@
 using BepInEx.Configuration;
 using HarmonyLib;
 
-namespace KeezyBetterWolves
+namespace SilentDeers
 {
     public delegate void ZSFXPlayListener(ZSFX sfx, ref bool shouldMute);
 
     public delegate void CharacterApplyDamageListener(Character targetCharacter, ref HitData hit,
         ref bool showDamageText, ref bool triggerEffects, ref HitData.DamageModifier damageMod);
 
-    [BepInPlugin("KeezyBetterWolves", ModInfo.Name, ModInfo.Version)]
+    [BepInPlugin("SilentDeers", ModInfo.Name, ModInfo.Version)]
     public class KeezyBetterWolves : BaseUnityPlugin
     {
         public static ConfigEntry<int> ConfigTamedWolfDamageReduction;
@@ -44,7 +44,7 @@ namespace KeezyBetterWolves
             if (ConfigTamedWolfDamageReduction.Value > 0 || ConfigTamedWolfPlayerDamageReduction.Value > 0)
                 CharacterApplyDamageEvent += AnimalListeners.PlayerTamedWolfDamageReduction;
 
-            new Harmony("KeezyBetterWolves.Harmony").PatchAll();
+            new Harmony("SilentDeers.Harmony").PatchAll();
         }
 
         public static event ZSFXPlayListener ZSFXPlayEvent;
