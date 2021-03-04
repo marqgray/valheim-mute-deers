@@ -18,3 +18,22 @@ This project is a modification to the new and popular game Valheim. The project 
 - Configurable wolf howl volume.
 - Configurable wolf howl reduction.
 
+
+
+### Changelog
+
+- ##### Version 0.2.1
+
+  - HOTFIX: Fixed bug with the config value “TamedHowlMutePercent” not working.
+
+- ##### Version 0.2
+
+  - Added configurable tamed wolf damage reduction from non-player sources. (Default: 70%)
+  - Added configurable tamed wolf damage reduction from player sources. (Default: 95%)
+
+- ##### Version 0.1.2
+
+  - Added configuration file.
+  - Added toggle-able config value to mute-tamed wolf howls.
+  - Added configurable value to adjust the volume of all tamed wolf howls.
+  - Added configurable value to apply a chance for all tamed wolf howls to be heard.
