@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SilentDeers
+﻿namespace SilentDeers
 {
     public abstract class Animal
     {

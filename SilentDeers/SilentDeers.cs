@@ -15,7 +15,6 @@ namespace SilentDeers
 
         private void Awake()
         {
-
             ConfigMuteDeerBleat = Config.Bind("Deers.Sound", "DeerBleatMute", true,
                 "Set this key to true or false to mute all deer bleats entirely.");
 
@@ -47,6 +46,5 @@ namespace SilentDeers
                 return !shouldMute;
             }
         }
-        
     }
 }

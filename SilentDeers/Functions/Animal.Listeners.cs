@@ -3,7 +3,6 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
 namespace SilentDeers
 {
     public static class AnimalListeners
@@ -44,6 +43,5 @@ namespace SilentDeers
                 throw new Exception(ExceptionMessages.AdjustDeerBleatVolume);
             }
         }
-
     }
 }
