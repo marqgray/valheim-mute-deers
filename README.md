@@ -2,7 +2,7 @@
 
 This project is a fork of https://github.com/marqgray/valheim-better-wolves
 
-This mod was modified upon request specifically for deers. Constant deer bleats are silenced by default and configurable. Deers will stake make a sound when they are alerted to a predator's presence, but it is once and nothing nearly as constant.
+This mod was modified upon request specifically for deers. Constant deer bleats are silenced by default and configurable. Deers will still make a sound when they are alerted to a predator's presence, but it is once and nothing nearly as constant.
 
 
 
