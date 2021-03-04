@@ -2,6 +2,6 @@
 {
     public static class SfxIdentifiers
     {
-        public const string DeerBleat = "sfx_wolf_haul";
+        public const string DeerBleat = "sfx_deer_idle";
     }
 }

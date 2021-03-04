@@ -6,26 +6,22 @@ namespace SilentDeers
     {
         public static readonly Dictionary<AnimalType, string> Animals = new Dictionary<AnimalType, string>
         {
-            {AnimalType.EnemyAdultWolf, "$enemy_wolf"},
-            {AnimalType.EnemyAdultWolfCub, "$enemy_wolfcub"}
+            {AnimalType.Deer, "$enemy_deer"}
         };
 
         public static readonly Dictionary<AnimalType, string> Deers = new Dictionary<AnimalType, string>
         {
-            {AnimalType.EnemyAdultWolf, Animals[AnimalType.EnemyAdultWolf]},
-            {AnimalType.EnemyAdultWolfCub, Animals[AnimalType.EnemyAdultWolfCub]}
+            {AnimalType.Deer, Animals[AnimalType.Deer]}
         };
 
         public static readonly Dictionary<AnimalType, string> EnemyWolves = new Dictionary<AnimalType, string>
         {
-            {AnimalType.EnemyAdultWolf, Animals[AnimalType.EnemyAdultWolf]},
-            {AnimalType.EnemyAdultWolfCub, Animals[AnimalType.EnemyAdultWolfCub]}
+            {AnimalType.Deer, Animals[AnimalType.Deer]}
         };
     }
 
     public enum AnimalType
     {
-        EnemyAdultWolf = 0,
-        EnemyAdultWolfCub = 1
+        Deer = 0
     }
 }
