@@ -6,6 +6,10 @@ This mod was modified upon request specifically for deers. Constant deer bleats 
 
 
 
+This mod will not receive any new feature updates. This mod may be incorporated into a larger mod of mine with new features and changes in the future.
+
+
+
 ### Requirements
 
 - [BepInExPack Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
