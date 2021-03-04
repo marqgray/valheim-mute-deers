@@ -6,7 +6,7 @@ This mod was modified upon request specifically for deers. Constant deer bleats 
 
 
 
-This mod will not receive any new feature updates. This mod may be incorporated into a larger mod of mine with new features and changes in the future.
+This mod will not receive any new feature updates. This mod may be incorporated into a larger mod of my making with new features, changes, and optimizations in the future.
 
 
 
